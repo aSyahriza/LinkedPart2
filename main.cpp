@@ -144,6 +144,11 @@ void deleteStudent(Node<Student>* next,Node<Student>* &head,int &inputId){
     }
   }
 
+  // Checks if at the end of the list.
+  if(next->getNext()==NULL){
+    cout << "Unable to find student." << endl;
+    return;
+  }
   // Checks if the next node is the node to be deleted
   if(next->getNext()->val()->getId()==inputId){
     cout <<"Student has been deleted." << endl;
@@ -151,13 +156,8 @@ void deleteStudent(Node<Student>* next,Node<Student>* &head,int &inputId){
     next->setNext(next->getNext()->getNext());
     delete temp;
     return;
-    
   }
-  // If the end of the list has been reached
-  else if(next->getNext()==NULL){
-    cout << "Unable to find student." << endl;
-    return;
-  }
+
 
   // Moves onto next node
   else{ 
